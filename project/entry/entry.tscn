@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/fonts/Roboto/Roboto-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://entry/entry.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.92, 0.6808, 0.552, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color( 0.937255, 0.34902, 0.101961, 1 )
+expand_margin_left = 6.0
+expand_margin_right = 400.0
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[node name="Panel" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 2
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 2 )
+script = ExtResource( 2 )
+
+[node name="Entry" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 0
+
+[node name="Tip" type="RichTextLabel" parent="Entry"]
+margin_right = 400.0
+margin_bottom = 1080.0
+rect_min_size = Vector2( 400, 80 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 1 )
+custom_styles/normal = SubResource( 3 )
