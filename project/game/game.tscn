@@ -437,7 +437,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/Separador/Panel/AspectRatioContainer"]
-margin_top = 8.0
+margin_top = 8.00043
 margin_right = 465.0
 margin_bottom = 473.0
 size_flags_horizontal = 3

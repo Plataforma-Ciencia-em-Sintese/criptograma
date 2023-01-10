@@ -91,6 +91,7 @@ onready var _user_solution: Dictionary = {}
 func _ready():
 	_gen_solution_table()
 	_populate_table()
+	print(_solution_mask)
 #  [BUILT-IN_VIRTUAL_METHOD]
 
 func _unhandled_key_input(event):
@@ -144,7 +145,8 @@ func _gen_solution_table() -> void:
 		var symbol: String = copylist.pop_front()
 #		_solution_letters[symbol] = i
 		_solution_letters[i] = symbol
-		_solution_mask[i] = false
+#		_solution_mask[i] = false
+		_solution_mask[i] = true
 		_user_solution[symbol] = ""
 
 func _populate_table() -> void:
@@ -173,7 +175,8 @@ func _populate_table() -> void:
 				je = SPECIAL_CHAR_DICIO[j]
 			if je in _solution_letters:
 				j_pic.text = _solution_letters[je]
-				_solution_mask[je] = true
+				_solution_mask[je] = false
+#				_solution_mask[je] = true
 				self.connect("table_change", j_letter, "_on_solution_changed")
 			else:
 				j_pic.text = " "
@@ -190,16 +193,20 @@ func _update_user_solution () -> void:
 func _verify_solution () -> void:
 	var win_rule = true
 #	printt(_solution_mask, _user_solution)
-	for i in _solution_mask:
-		var round_iteration = false
-		if (_solution_mask[i]):
-			for j in _user_solution:
-				if (i == _user_solution[j]):
-					round_iteration = true
-		else:
-			round_iteration = true
-		win_rule = win_rule and round_iteration
-#		printt(i, win_rule)
+	for i in _solution_mask: # "i" eh a letra a ser testada
+		var mask = _solution_mask[i] # se isso aqui eh verdadeiro, a rodada eh verdadeira
+		var simb = _solution_letters[i] # simbolo correto para a letra i
+		var comp = i == _user_solution[simb] # verifica se o valor atribuido pelo usuario eh igual a resposta
+		win_rule = win_rule and (mask or comp)
+#		var round_iteration = true
+#		if (_solution_mask[i]):
+#			for j in _user_solution:
+#				if (i == _user_solution[j]):
+#					round_iteration = true
+#		else:
+#			round_iteration = true
+#		win_rule = win_rule and round_iteration
+##		printt(i, win_rule)
 	if (win_rule):
 		print("fim de jogo")
 		_panel_info.show
