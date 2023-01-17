@@ -122,3 +122,13 @@ func _load_theme() -> void:
 
 #  [SIGNAL_METHODS]
 
+
+
+func _on_Hide_pressed():
+	self.hide()
+	show.show()
+
+
+func _on_ShowPanelInformation_pressed():
+	self.show()
+	show.hide()

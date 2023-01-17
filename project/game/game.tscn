@@ -1168,3 +1168,6 @@ __meta__ = {
 "_edit_use_anchors_": true,
 "_editor_description_": ""
 }
+
+[connection signal="pressed" from="PanelInformation/GlobalContainer/Hide" to="PanelInformation" method="_on_Hide_pressed"]
+[connection signal="pressed" from="ShowPanelInformation" to="PanelInformation" method="_on_ShowPanelInformation_pressed"]
