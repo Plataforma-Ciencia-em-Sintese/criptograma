@@ -48,7 +48,26 @@ func _ready():
 #  [PRIVATE_METHODS]
 
 func _update_theme() -> void:
-	pass
+	# Background Panel
+	var panel : StyleBoxFlat = self.get("custom_styles/panel")
+#	panel.bg_color = API.theme.get_color(API.theme.PL2)
+#	panel.border_color = API.theme.get_color(API.theme.PB)
+	panel.border_color = API.theme.get_color(API.theme.PD1)
+	
+	# Label theme
+	
+	# Button Theme
+	var hover : StyleBoxFlat = letter.get("custom_styles/hover")
+	var press : StyleBoxFlat = letter.get("custom_styles/pressed")
+	var focus : StyleBoxFlat = letter.get("custom_styles/focus")
+	var disab : StyleBoxFlat = letter.get("custom_styles/disabled")
+	var norma : StyleBoxFlat = letter.get("custom_styles/normal")
+	
+	hover.bg_color = API.theme.get_color(API.theme.PL2)
+	press.bg_color = API.theme.get_color(API.theme.PL2)
+	focus.bg_color = API.theme.get_color(API.theme.PL2)
+	disab.bg_color = API.theme.get_color(API.theme.PD2)
+	norma.bg_color = API.theme.get_color(API.theme.PB)
 
 func _selected() -> void:
 	Raiz.set_selected_symbol(pic.text)

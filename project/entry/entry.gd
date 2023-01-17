@@ -44,6 +44,12 @@ func _ready():
 
 #  [PRIVATE_METHODS]
 func _update_theme() -> void:
-	pass
+#	print(API.theme.get_color(API.theme.PD1))
+	var panel : StyleBoxFlat = self.get("custom_styles/panel")
+	panel.bg_color = API.theme.get_color(API.theme.PL2)
+#	panel.border_color = API.theme.get_color(API.theme.PB)
+	panel.border_color = API.theme.get_color(API.theme.PD1)
+	
+	tip.set("custom_colors/default_color", API.theme.get_color(API.theme.PD3))
 
 #  [SIGNAL_METHODS]

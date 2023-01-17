@@ -83,6 +83,7 @@ onready var _solution_letters: Dictionary = {}
 onready var _solution_mask: Dictionary = {}
 onready var _reverse_solution: Dictionary = {}
 onready var _user_solution: Dictionary = {}
+onready var _game_running: bool = true
 
 #  [OPTIONAL_BUILT-IN_VIRTUAL_METHOD]
 #func _init() -> void:
@@ -105,7 +106,7 @@ func _unhandled_key_input(event):
 #		_last_selected_button = dic_button
 #		if ((event_key.get_physical_scancode() in _allowed_keys) and dic_button.has("button")):
 #		if ((event_key.get_physical_scancode() in ALLOWED_KEYS) and dic_button.has("button")):
-		if (event_key.get_physical_scancode() in ALLOWED_KEYS) :
+		if ((event_key.get_physical_scancode() in ALLOWED_KEYS) and _game_running) :
 			_user_solution[_selected] = char(event_key.get_scancode())
 			_update_user_solution()
 			_verify_solution()
@@ -209,7 +210,8 @@ func _verify_solution () -> void:
 ##		printt(i, win_rule)
 	if (win_rule):
 		print("fim de jogo")
-		_panel_info.show
+		_panel_info.show()
+		_game_running = false
 		emit_signal("game_over")
 
 #  [SIGNAL_METHODS]
