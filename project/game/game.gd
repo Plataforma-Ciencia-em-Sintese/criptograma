@@ -215,3 +215,7 @@ func _verify_solution () -> void:
 		emit_signal("game_over")
 
 #  [SIGNAL_METHODS]
+
+
+func _on_ThemeButtonIcon_pressed():
+	get_tree().change_scene("res://home/home.tscn")

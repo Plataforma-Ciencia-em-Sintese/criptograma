@@ -199,8 +199,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_horizontal_guides_": [ 1040.0, 160.0, 40.0, 176.0 ],
-"_edit_vertical_guides_": [ 1840.0, 80.0 ]
+"_edit_horizontal_guides_": [ 1043.0, 160.0, 42.0, 176.0 ],
+"_edit_vertical_guides_": [ 1840.0, 78.0 ]
 }
 
 [node name="Background" parent="." instance=ExtResource( 4 )]
@@ -213,7 +213,7 @@ anchor_bottom = 0.962963
 margin_top = 0.0400009
 margin_right = 0.639893
 rect_min_size = Vector2( 768, 0 )
-ratio = 1.885
+ratio = 1.865
 alignment_vertical = 0
 __meta__ = {
 "_edit_use_anchors_": true
@@ -221,13 +221,13 @@ __meta__ = {
 
 [node name="Separador" type="Control" parent="AspectRatioContainer"]
 margin_right = 1760.0
-margin_bottom = 933.687
+margin_bottom = 943.7
 
 [node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/Separador"]
 anchor_right = 1.0
-anchor_bottom = 0.136
-margin_bottom = -16.0
-rect_min_size = Vector2( 768, 0 )
+anchor_bottom = 0.121
+margin_bottom = -1.06788
+rect_min_size = Vector2( 768, 120 )
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": true
@@ -235,13 +235,11 @@ __meta__ = {
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="AspectRatioContainer/Separador/HBoxContainer"]
 margin_right = 56.0
-margin_bottom = 114.0
+margin_bottom = 120.0
 stretch_mode = 1
 alignment_horizontal = 0
 
 [node name="ThemeButtonIcon" parent="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer" instance=ExtResource( 12 )]
-margin_right = 114.0
-margin_bottom = 114.0
 hint_tooltip = "Voltar para o menu iniciar"
 size_flags_horizontal = 7
 size_flags_vertical = 7
@@ -249,9 +247,9 @@ text = ""
 
 [node name="PlaceHolder" type="Label" parent="AspectRatioContainer/Separador/HBoxContainer"]
 margin_left = 60.0
-margin_top = 50.0
+margin_top = 53.0
 margin_right = 137.0
-margin_bottom = 64.0
+margin_bottom = 67.0
 rect_min_size = Vector2( 77, 0 )
 align = 1
 
@@ -289,23 +287,23 @@ align = 2
 
 [node name="PlaceHolder3" type="Label" parent="AspectRatioContainer/Separador/HBoxContainer"]
 margin_left = 141.0
-margin_top = 50.0
+margin_top = 53.0
 margin_right = 218.0
-margin_bottom = 64.0
+margin_bottom = 67.0
 rect_min_size = Vector2( 77, 0 )
 align = 1
 
 [node name="Label2" type="Label" parent="AspectRatioContainer/Separador/HBoxContainer"]
 margin_left = 222.0
-margin_top = 50.0
+margin_top = 53.0
 margin_right = 1605.0
-margin_bottom = 64.0
+margin_bottom = 67.0
 size_flags_horizontal = 3
 
 [node name="AspectRatioContainer4" type="AspectRatioContainer" parent="AspectRatioContainer/Separador/HBoxContainer"]
 margin_left = 1609.0
 margin_right = 1609.0
-margin_bottom = 114.0
+margin_bottom = 120.0
 grow_horizontal = 0
 ratio = 3.5
 stretch_mode = 1
@@ -313,31 +311,31 @@ alignment_horizontal = 2
 
 [node name="Button" type="Button" parent="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer4"]
 visible = false
-margin_left = -399.0
-margin_bottom = 114.0
+margin_left = -420.0
+margin_bottom = 120.0
 grow_horizontal = 0
 theme = ExtResource( 6 )
 text = "TECLADO"
 
 [node name="PlaceHolder2" type="Label" parent="AspectRatioContainer/Separador/HBoxContainer"]
 margin_left = 1613.0
-margin_top = 50.0
+margin_top = 53.0
 margin_right = 1718.0
-margin_bottom = 64.0
+margin_bottom = 67.0
 rect_min_size = Vector2( 105, 0 )
 align = 1
 
 [node name="AspectRatioContainer3" type="AspectRatioContainer" parent="AspectRatioContainer/Separador/HBoxContainer"]
 margin_left = 1722.0
 margin_right = 1759.0
-margin_bottom = 114.0
+margin_bottom = 120.0
 stretch_mode = 1
 alignment_horizontal = 2
 
 [node name="ThemeButton" parent="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer3" instance=ExtResource( 3 )]
-margin_left = -77.0
+margin_left = -83.0
 margin_right = 37.0
-margin_bottom = 114.0
+margin_bottom = 120.0
 hint_tooltip = "Como Jogar"
 size_flags_horizontal = 7
 size_flags_vertical = 7
@@ -346,9 +344,9 @@ text = "?"
 selected_color = 1
 
 [node name="Panel" type="Panel" parent="AspectRatioContainer/Separador"]
-anchor_top = 0.136
+anchor_top = 0.136618
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 1.00655
 rect_min_size = Vector2( 768, 0 )
 theme = ExtResource( 2 )
 __meta__ = {
@@ -365,6 +363,7 @@ __meta__ = {
 }
 
 [node name="ClueDisplay" type="VBoxContainer" parent="AspectRatioContainer/Separador/Panel"]
+visible = false
 anchor_left = 0.0267045
 anchor_top = 0.0162037
 anchor_right = 0.343182
@@ -396,7 +395,7 @@ text = "Orientação"
 [node name="ClueContainer" type="HBoxContainer" parent="AspectRatioContainer/Separador/Panel/ClueDisplay"]
 margin_top = 34.0
 margin_right = 557.0
-margin_bottom = 415.0
+margin_bottom = 443.0
 size_flags_vertical = 3
 
 [node name="Number" type="RichTextLabel" parent="AspectRatioContainer/Separador/Panel/ClueDisplay/ClueContainer"]
@@ -437,9 +436,9 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/Separador/Panel/AspectRatioContainer"]
-margin_top = 8.00043
+margin_top = 12.2497
 margin_right = 465.0
-margin_bottom = 473.0
+margin_bottom = 477.249
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 14 )
@@ -1169,5 +1168,6 @@ __meta__ = {
 "_editor_description_": ""
 }
 
+[connection signal="pressed" from="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer/ThemeButtonIcon" to="." method="_on_ThemeButtonIcon_pressed"]
 [connection signal="pressed" from="PanelInformation/GlobalContainer/Hide" to="PanelInformation" method="_on_Hide_pressed"]
 [connection signal="pressed" from="ShowPanelInformation" to="PanelInformation" method="_on_ShowPanelInformation_pressed"]

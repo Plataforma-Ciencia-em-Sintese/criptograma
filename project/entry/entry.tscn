@@ -45,3 +45,4 @@ custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 0.392157 )
 custom_fonts/normal_font = SubResource( 1 )
 custom_styles/normal = SubResource( 3 )
+scroll_active = false

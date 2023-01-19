@@ -55,6 +55,7 @@ func _update_theme() -> void:
 	panel.border_color = API.theme.get_color(API.theme.PD1)
 	
 	# Label theme
+	pic.set("custom_colors/font_color", API.theme.get_color(API.theme.PL1))
 	
 	# Button Theme
 	var hover : StyleBoxFlat = letter.get("custom_styles/hover")
@@ -63,11 +64,26 @@ func _update_theme() -> void:
 	var disab : StyleBoxFlat = letter.get("custom_styles/disabled")
 	var norma : StyleBoxFlat = letter.get("custom_styles/normal")
 	
+	var alpha_col : Color = Color(00,00,00,00)
+	
 	hover.bg_color = API.theme.get_color(API.theme.PL2)
+	hover.border_color = API.theme.get_color(API.theme.PD1)
 	press.bg_color = API.theme.get_color(API.theme.PL2)
+	press.border_color = API.theme.get_color(API.theme.PD1)
 	focus.bg_color = API.theme.get_color(API.theme.PL2)
-	disab.bg_color = API.theme.get_color(API.theme.PD2)
-	norma.bg_color = API.theme.get_color(API.theme.PB)
+	focus.border_color = API.theme.get_color(API.theme.PD1)
+#	disab.bg_color = API.theme.get_color(API.theme.PD2)
+	disab.bg_color = alpha_col
+	disab.border_color = API.theme.get_color(API.theme.PD1)
+#	norma.bg_color = API.theme.get_color(API.theme.PB)
+	norma.bg_color = alpha_col
+	norma.border_color = API.theme.get_color(API.theme.PD1)
+	
+	letter.set("custom_colors/font_color", API.theme.get_color(API.theme.PD2))
+	letter.set("custom_colors/font_color_focus", API.theme.get_color(API.theme.PD2))
+	letter.set("custom_colors/font_color_disabled", API.theme.get_color(API.theme.PD2))
+	letter.set("custom_colors/font_color_hover", API.theme.get_color(API.theme.PD2))
+	letter.set("custom_colors/font_color_pressed", API.theme.get_color(API.theme.PD2))
 
 func _selected() -> void:
 	Raiz.set_selected_symbol(pic.text)

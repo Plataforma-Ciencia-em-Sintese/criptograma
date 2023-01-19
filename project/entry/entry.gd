@@ -50,6 +50,6 @@ func _update_theme() -> void:
 #	panel.border_color = API.theme.get_color(API.theme.PB)
 	panel.border_color = API.theme.get_color(API.theme.PD1)
 	
-	tip.set("custom_colors/default_color", API.theme.get_color(API.theme.PD3))
+	tip.set("custom_colors/default_color", API.theme.get_color(API.theme.BLACK))
 
 #  [SIGNAL_METHODS]
