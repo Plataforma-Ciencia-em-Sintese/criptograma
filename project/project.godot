@@ -78,8 +78,8 @@ API="*res://api/api.gd"
 
 [display]
 
-window/size/width=1280
-window/size/height=720
+window/size/width=1920
+window/size/height=1080
 
 [gui]
 
