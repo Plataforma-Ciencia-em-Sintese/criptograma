@@ -217,5 +217,5 @@ func _verify_solution () -> void:
 #  [SIGNAL_METHODS]
 
 
-func _on_ThemeButtonIcon_pressed():
+func _on_home_pressed():
 	get_tree().change_scene("res://home/home.tscn")
