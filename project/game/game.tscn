@@ -201,7 +201,7 @@ anchor_bottom = 1.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 1043.0, 152.0, 42.0, 176.0 ],
-"_edit_vertical_guides_": [ 1840.0, 78.0, 578.0, 847.0, 1220.0 ]
+"_edit_vertical_guides_": [ 1842.0, 81.0, 578.0, 867.0, 1269.0 ]
 }
 
 [node name="Background" parent="." instance=ExtResource( 4 )]
@@ -222,14 +222,15 @@ __meta__ = {
 }
 
 [node name="Separador" type="Control" parent="AspectRatioContainer"]
-margin_right = 1173.55
-margin_bottom = 655.613
+margin_right = 1760.0
+margin_bottom = 983.24
 
 [node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/Separador"]
 anchor_right = 1.0
 anchor_bottom = 0.121
 margin_bottom = -1.06788
 rect_min_size = Vector2( 768, 80 )
+custom_constants/separation = 6
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": true
@@ -237,50 +238,47 @@ __meta__ = {
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="AspectRatioContainer/Separador/HBoxContainer"]
 margin_right = 33.0
-margin_bottom = 80.0
+margin_bottom = 117.0
 stretch_mode = 1
 alignment_horizontal = 0
 
-[node name="ThemeButtonIcon2" parent="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer" instance=ExtResource( 15 )]
-margin_right = 80.0
-margin_bottom = 80.0
-text = ""
-
 [node name="ThemeButtonIcon" parent="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer" instance=ExtResource( 12 )]
 visible = false
-margin_top = -17.0
-margin_right = 80.0
-margin_bottom = 97.0
+margin_right = 117.0
+margin_bottom = 117.0
 hint_tooltip = "Voltar para o menu iniciar"
 size_flags_horizontal = 7
 size_flags_vertical = 7
 text = ""
+selected_color = 1
+
+[node name="ThemeButtonIcon2" parent="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer" instance=ExtResource( 15 )]
+margin_right = 117.0
+margin_bottom = 117.0
+text = ""
 
 [node name="PlaceHolder" type="Label" parent="AspectRatioContainer/Separador/HBoxContainer"]
-margin_left = 37.0
-margin_top = 33.0
-margin_right = 114.0
-margin_bottom = 47.0
+margin_left = 39.0
+margin_top = 51.0
+margin_right = 116.0
+margin_bottom = 65.0
 rect_min_size = Vector2( 77, 0 )
 align = 1
 
 [node name="AspectRatioContainer2" type="AspectRatioContainer" parent="AspectRatioContainer/Separador/HBoxContainer"]
-visible = false
-margin_left = 141.0
-margin_right = 197.0
-margin_bottom = 119.0
+margin_left = 122.0
+margin_right = 155.0
+margin_bottom = 117.0
 stretch_mode = 1
 alignment_horizontal = 0
 
-[node name="tipbutton" parent="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer2" instance=ExtResource( 12 )]
-margin_right = 119.0
-margin_bottom = 119.0
-hint_tooltip = "Solução da letra atual."
-size_flags_horizontal = 7
-size_flags_vertical = 7
+[node name="ThemeButtonIcon3" parent="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer2" instance=ExtResource( 15 )]
+margin_right = 117.0
+margin_bottom = 117.0
 text = "ﯦ"
+selected_color = 1
 
-[node name="tips" type="Label" parent="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer2/tipbutton"]
+[node name="tips" type="Label" parent="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer2/ThemeButtonIcon3"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -296,25 +294,34 @@ custom_styles/normal = SubResource( 5 )
 text = "10"
 align = 2
 
+[node name="tipbutton" parent="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer2" instance=ExtResource( 12 )]
+visible = false
+margin_right = 117.0
+margin_bottom = 117.0
+hint_tooltip = "Solução da letra atual."
+size_flags_horizontal = 7
+size_flags_vertical = 7
+text = "ﯦ"
+
 [node name="PlaceHolder3" type="Label" parent="AspectRatioContainer/Separador/HBoxContainer"]
-margin_left = 118.0
-margin_top = 33.0
-margin_right = 195.0
-margin_bottom = 47.0
+margin_left = 161.0
+margin_top = 51.0
+margin_right = 238.0
+margin_bottom = 65.0
 rect_min_size = Vector2( 77, 0 )
 align = 1
 
 [node name="Label2" type="Label" parent="AspectRatioContainer/Separador/HBoxContainer"]
-margin_left = 199.0
-margin_top = 33.0
-margin_right = 1019.0
-margin_bottom = 47.0
+margin_left = 244.0
+margin_top = 51.0
+margin_right = 1599.0
+margin_bottom = 65.0
 size_flags_horizontal = 3
 
 [node name="AspectRatioContainer4" type="AspectRatioContainer" parent="AspectRatioContainer/Separador/HBoxContainer"]
-margin_left = 1023.0
-margin_right = 1023.0
-margin_bottom = 80.0
+margin_left = 1605.0
+margin_right = 1605.0
+margin_bottom = 117.0
 grow_horizontal = 0
 ratio = 3.5
 stretch_mode = 1
@@ -322,31 +329,31 @@ alignment_horizontal = 2
 
 [node name="Button" type="Button" parent="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer4"]
 visible = false
-margin_left = -280.0
-margin_bottom = 80.0
+margin_left = -409.5
+margin_bottom = 117.0
 grow_horizontal = 0
 theme = ExtResource( 6 )
 text = "TECLADO"
 
 [node name="PlaceHolder2" type="Label" parent="AspectRatioContainer/Separador/HBoxContainer"]
-margin_left = 1027.0
-margin_top = 33.0
-margin_right = 1132.0
-margin_bottom = 47.0
+margin_left = 1611.0
+margin_top = 51.0
+margin_right = 1716.0
+margin_bottom = 65.0
 rect_min_size = Vector2( 105, 0 )
 align = 1
 
 [node name="AspectRatioContainer3" type="AspectRatioContainer" parent="AspectRatioContainer/Separador/HBoxContainer"]
-margin_left = 1136.0
-margin_right = 1173.0
-margin_bottom = 80.0
+margin_left = 1722.0
+margin_right = 1759.0
+margin_bottom = 117.0
 stretch_mode = 1
 alignment_horizontal = 2
 
 [node name="ThemeButton" parent="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer3" instance=ExtResource( 3 )]
-margin_left = -43.0
+margin_left = -80.0
 margin_right = 37.0
-margin_bottom = 80.0
+margin_bottom = 117.0
 hint_tooltip = "Como Jogar"
 size_flags_horizontal = 7
 size_flags_vertical = 7
@@ -453,9 +460,9 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/Separador/Panel/AspectRatioContainer"]
-margin_top = 15.0057
-margin_right = 310.056
-margin_bottom = 325.062
+margin_top = 22.5045
+margin_right = 465.0
+margin_bottom = 487.504
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 14 )
@@ -594,9 +601,9 @@ __meta__ = {
 }
 
 [node name="Panel" type="Panel" parent="HowToPlay"]
-margin_left = 0.0128174
-margin_right = 975.987
-margin_bottom = 576.0
+margin_left = 0.0192261
+margin_right = 1463.98
+margin_bottom = 864.0
 theme = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="HowToPlay/Panel"]
@@ -778,9 +785,9 @@ __meta__ = {
 }
 
 [node name="Panel" type="Panel" parent="gameOver/AspectRatioContainer"]
-margin_left = 0.0180664
-margin_right = 935.315
-margin_bottom = 610.667
+margin_left = 0.0270996
+margin_right = 1402.97
+margin_bottom = 916.0
 theme = ExtResource( 2 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="gameOver/AspectRatioContainer/Panel"]
@@ -1186,5 +1193,6 @@ __meta__ = {
 }
 
 [connection signal="pressed" from="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer/ThemeButtonIcon2" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer2/ThemeButtonIcon3" to="." method="_on_home_pressed"]
 [connection signal="pressed" from="PanelInformation/GlobalContainer/Hide" to="PanelInformation" method="_on_Hide_pressed"]
 [connection signal="pressed" from="ShowPanelInformation" to="PanelInformation" method="_on_ShowPanelInformation_pressed"]
