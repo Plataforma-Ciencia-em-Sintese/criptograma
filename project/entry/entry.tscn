@@ -37,10 +37,10 @@ size_flags_vertical = 3
 custom_constants/separation = 0
 
 [node name="Tip" type="Label" parent="Entry"]
-margin_top = 500.0
+margin_top = 510.0
 margin_right = 280.0
-margin_bottom = 580.0
-rect_min_size = Vector2( 280, 80 )
+margin_bottom = 570.0
+rect_min_size = Vector2( 280, 60 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 0.392157 )
 custom_fonts/font = SubResource( 4 )

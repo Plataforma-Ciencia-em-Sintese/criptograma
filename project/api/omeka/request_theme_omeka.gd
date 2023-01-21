@@ -16,7 +16,7 @@ signal request_background_texture_completed
 
 
 #  [CONSTANTS]
-const RESOURCE_MODEL_ID: int = 20
+const RESOURCE_MODEL_ID: int = 30
 const URL_BASE := "https://repositorio.canalciencia.ibict.br/api/items/"
 
 #  [EXPORTED_VARIABLES]
@@ -69,7 +69,7 @@ func get_resources() -> Dictionary:
 
 #  [PRIVATE_METHODS]
 func _request_main() -> void:
-	var url_parameters := URL.get_parameters("https://.../?id=25308&skip=0")
+	var url_parameters := URL.get_parameters("https://.../?id=27829&skip=0")
 	if url_parameters.has("id"):
 		var http_request: HTTPRequest = HTTPRequest.new()
 		add_child(http_request)
