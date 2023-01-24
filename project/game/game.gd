@@ -92,7 +92,9 @@ onready var _game_running: bool = true
 func _ready():
 	_gen_solution_table()
 	_populate_table()
-	print(_solution_mask)
+	print(API.get_game_words())
+	
+#	print(_solution_mask)
 #  [BUILT-IN_VIRTUAL_METHOD]
 
 func _unhandled_key_input(event):
@@ -159,11 +161,13 @@ func _populate_table() -> void:
 		var i_up : String = i.to_upper()
 #		var i_tip : Label = i_entry.get_node("Tip")
 #		var i_tip : RichTextLabel = i_entry.get_node("Entry/Tip")
-		var i_tip : Label = i_entry.get_node("Entry/Tip")
+		var i_tip : RichTextLabel = i_entry.get_node("Entry/Tip")
 #		var i_text: String = API.get_game_words()[i]
 #		print(API.get_game_words())
 #		print(i_tip)
-		i_tip.text = API.get_game_words()[i]["clue"]
+#		i_tip.text = API.get_game_words()[i]["clue"]
+		var large_clue = _extra_espace(API.get_game_words()[i]["clue"])
+		i_tip.text = large_clue
 #		i_tip.text = i
 #		i_tip.text = "i_text"
 #		print(API.get_game_words()[i])
@@ -186,6 +190,14 @@ func _populate_table() -> void:
 			i_box.add_child(j_letter)
 			
 
+func _extra_espace(text: String) -> String:
+	if (len(text) > 50):
+		return "\n" + text
+	else:
+		return "\n"+ text
+#		return "\n\n"+ text
+#	return ""
+
 func _get_actual_symbol() -> void:
 	pass
 
@@ -193,6 +205,7 @@ func _update_user_solution () -> void:
 	emit_signal("table_change")
 
 func _verify_solution () -> void:
+#	print()
 	var win_rule = true
 #	printt(_solution_mask, _user_solution)
 	for i in _solution_mask: # "i" eh a letra a ser testada
@@ -200,6 +213,7 @@ func _verify_solution () -> void:
 		var simb = _solution_letters[i] # simbolo correto para a letra i
 		var comp = i == _user_solution[simb] # verifica se o valor atribuido pelo usuario eh igual a resposta
 		win_rule = win_rule and (mask or comp)
+#		printt(mask, i, _user_solution[simb], (mask or comp))
 #		var round_iteration = true
 #		if (_solution_mask[i]):
 #			for j in _user_solution:

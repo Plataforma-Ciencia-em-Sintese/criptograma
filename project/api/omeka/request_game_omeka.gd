@@ -90,11 +90,11 @@ func _request_words() -> void:
 			var entry = {}
 			if "|" in value:
 				var spli = value.split("|")
-				word = spli[0]
+				word = spli[0].to_upper()
 				clue = spli[1]
 			elif ":" in value:
 				var spli = value.split(":")
-				word = spli[0]
+				word = spli[0].to_upper()
 				clue = spli[1]
 			else:
 				emit_signal("request_error", "RequestGameOmeka._request_main(): invalid game data")
