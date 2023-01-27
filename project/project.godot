@@ -80,7 +80,7 @@ API="*res://api/api.gd"
 
 window/size/width=1920
 window/size/height=1080
-window/size/test_width=1280
+window/size/test_width=1366
 window/size/test_height=768
 
 [gui]

@@ -79,6 +79,7 @@ var _selected: String
 
 onready var _table: VBoxContainer = $AspectRatioContainer/Separador/Panel/GameTable
 onready var _panel_info: Panel = $PanelInformation
+#onready var _back_panel: Panel = $AspectRatioContainer/Separador/Panel
 onready var _solution_letters: Dictionary = {}
 onready var _solution_mask: Dictionary = {}
 onready var _reverse_solution: Dictionary = {}

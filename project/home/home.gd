@@ -62,6 +62,9 @@ func _update_theme() -> void:
 #	box = $container/circle.get_stylebox("custom_styles/panel", "override")
 	box = $container/circle.get("custom_styles/panel")
 	box.bg_color = API.theme.get_color(API.theme.PB)
+	
+	box = default.get_stylebox("panel", "Panel")
+	box.bg_color = API.theme.get_color(API.theme.PL3)
 #	print(box)
  
 

@@ -55,7 +55,8 @@ func _update_theme() -> void:
 	var panel : StyleBoxFlat = self.get("custom_styles/panel")
 	panel.bg_color = API.theme.get_color(API.theme.PL2)
 #	panel.border_color = API.theme.get_color(API.theme.PB)
-	panel.border_color = API.theme.get_color(API.theme.PD1)
+#	panel.border_color = API.theme.get_color(API.theme.PD1)
+	panel.border_color = Color(0, 0, 0, 0)
 	
 	tip.set("custom_colors/default_color", API.theme.get_color(API.theme.BLACK))
 
@@ -64,3 +65,4 @@ func _resize_tip() -> void:
 #	var size : float = container.rect_size.x
 	var size : float = pan.rect_size.x
 	tip.rect_min_size.x = size * 0.23
+	self.rect_min_size.x = size * 0.23
