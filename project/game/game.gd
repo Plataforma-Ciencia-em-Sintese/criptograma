@@ -94,6 +94,9 @@ func _ready():
 	_gen_solution_table()
 	_populate_table()
 	print(API.get_game_words())
+	if OS.has_virtual_keyboard():
+		$HidedText.text = "Há suporte"
+#		OS.show_virtual_keyboard()
 	
 #	print(_solution_mask)
 #  [BUILT-IN_VIRTUAL_METHOD]
@@ -127,7 +130,7 @@ func _unhandled_key_input(event):
 
 #  [REMAINIG_BUILT-IN_VIRTUAL_METHODS]
 #func _process(_delta: float) -> void:
-#	pass
+#	OS.show_virtual_keyboard()
 
 
 #  [PUBLIC_METHODS]
@@ -193,7 +196,8 @@ func _populate_table() -> void:
 
 func _extra_espace(text: String) -> String:
 	if (len(text) > 50):
-		return "\n" + text
+		return text
+#		return "\n" + text
 	else:
 		return "\n"+ text
 #		return "\n\n"+ text

@@ -15,7 +15,7 @@ expand_margin_bottom = 2.0
 
 [sub_resource type="DynamicFont" id=4]
 size = 24
-extra_spacing_top = -8
+extra_spacing_top = -6
 font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxEmpty" id=3]
@@ -27,6 +27,7 @@ size_flags_horizontal = 2
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 2 )
 script = ExtResource( 2 )
+proporcao = 0.4
 
 [node name="Entry" type="HBoxContainer" parent="."]
 anchor_right = 1.0
@@ -42,6 +43,7 @@ rect_min_size = Vector2( 280, 0 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 0 )
 custom_fonts/normal_font = SubResource( 4 )
 custom_styles/normal = SubResource( 3 )
+scroll_active = false
 
 [node name="Control" type="Control" parent="Entry"]
 margin_left = 280.0

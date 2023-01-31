@@ -11,6 +11,7 @@ extends Panel
 
 
 #  [EXPORTED_VARIABLES]
+export (float, 0.1, 0.9) var proporcao = 0.23
 
 #  [PUBLIC_VARIABLES]
 
@@ -64,5 +65,5 @@ func _update_theme() -> void:
 func _resize_tip() -> void:
 #	var size : float = container.rect_size.x
 	var size : float = pan.rect_size.x
-	tip.rect_min_size.x = size * 0.23
-	self.rect_min_size.x = size * 0.23
+	tip.rect_min_size.x = size * proporcao
+	self.rect_min_size.x = size * proporcao
