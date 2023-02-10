@@ -95,7 +95,7 @@ func _selected() -> void:
 
 func _on_letter_pressed():
 	var p = pic.text
-	printt(len(Raiz.SYMBOL_LIST), Raiz.SYMBOL_LIST.find(p))
+#	printt(len(Raiz.SYMBOL_LIST), Raiz.SYMBOL_LIST.find(p))
 	emit_signal("selected")
 	_selected()
 
@@ -114,3 +114,7 @@ func _resize_tip() -> void:
 	# A letra sera de 24 quando size for 1760
 	font = letter.get("custom_fonts/font")
 	font.size = ceil(size/73.333)
+
+
+func _on_letter_focus_entered():
+	_on_letter_pressed()

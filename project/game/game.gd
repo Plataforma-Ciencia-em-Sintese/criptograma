@@ -9,6 +9,11 @@ signal game_over
 signal table_change
 
 #  [ENUMS]
+enum SOLVE_TARGET {
+	three = 90,
+	two = 150,
+	one = 240,
+}
 
 #  [CONSTANTS]
 const scene_entry = preload("res://entry/entry.tscn")
@@ -85,6 +90,11 @@ onready var _solution_mask: Dictionary = {}
 onready var _reverse_solution: Dictionary = {}
 onready var _user_solution: Dictionary = {}
 onready var _game_running: bool = true
+onready var _timer: Timer = $Timer
+onready var _timer_display: Label = $AspectRatioContainer/Separador/HBoxContainer/timer
+onready var _run_time: int = 0
+onready var _congratulation: RichTextLabel = $PanelInformation/GlobalContainer/MarginContainer/VBoxContainer/HBoxContainer/ResultContainer/CongratulationsContainer/TotalStars
+onready var _final_time: Label = $PanelInformation/GlobalContainer/MarginContainer/VBoxContainer/HBoxContainer/ResultContainer/StatisticsContainer/TimeContainer/TotalTime
 
 #  [OPTIONAL_BUILT-IN_VIRTUAL_METHOD]
 #func _init() -> void:
@@ -97,6 +107,7 @@ func _ready():
 	if OS.has_virtual_keyboard():
 		$HidedText.text = "Há suporte"
 #		OS.show_virtual_keyboard()
+#	_timer.start()
 	
 #	print(_solution_mask)
 #  [BUILT-IN_VIRTUAL_METHOD]
@@ -116,6 +127,8 @@ func _unhandled_key_input(event):
 			_user_solution[_selected] = char(event_key.get_scancode())
 			_update_user_solution()
 			_verify_solution()
+			var next:Control = self.get_focus_owner().find_next_valid_focus()
+			next.grab_focus()
 #			if not dic_button["button"].disabled:
 #				dic_button["value"] = char(event_key.get_scancode())
 #				dic_button["button"].text = char(event_key.get_scancode())
@@ -130,7 +143,10 @@ func _unhandled_key_input(event):
 
 #  [REMAINIG_BUILT-IN_VIRTUAL_METHODS]
 #func _process(_delta: float) -> void:
-#	OS.show_virtual_keyboard()
+##	_timer_display.text = 
+#	print(_timer.wait_time)
+#	print(_timer.time_left)
+#	print(_timer.is_stopped())
 
 
 #  [PUBLIC_METHODS]
@@ -142,6 +158,16 @@ func set_selected_symbol(valor: String) -> void:
 	_selected = valor
 
 #  [PRIVATE_METHODS]
+
+func _score(time : int) -> int:
+	if time <= SOLVE_TARGET.three:
+		return 3
+	elif time <= SOLVE_TARGET.two:
+		return 2
+	elif time <= SOLVE_TARGET.one:
+		return 1
+	return 0
+
 func _gen_solution_table() -> void:
 	seed(ceil(Time.get_unix_time_from_system()))
 	var valid : String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -233,9 +259,17 @@ func _verify_solution () -> void:
 		_panel_info.show()
 		_game_running = false
 		emit_signal("game_over")
+		var score: int = _score(_run_time)
+		_congratulation.bbcode_text = "Você completou o nível! Conseguiu [color=#666666][b]%d[/b][/color] estrelas."%score
+		_final_time.text = "%02d:%02d" % [(_run_time/60) % 60, _run_time % 60]
 
 #  [SIGNAL_METHODS]
 
 
 func _on_home_pressed():
 	get_tree().change_scene("res://home/home.tscn")
+
+
+func _on_Timer_timeout():
+	_run_time += 1
+	_timer_display.text = "%02d:%02d" % [(_run_time/60) % 60, _run_time % 60]

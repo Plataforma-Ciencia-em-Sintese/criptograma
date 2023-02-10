@@ -82,4 +82,5 @@ custom_styles/focus = SubResource( 7 )
 custom_styles/disabled = SubResource( 8 )
 custom_styles/normal = SubResource( 9 )
 
+[connection signal="focus_entered" from="letter/letter" to="." method="_on_letter_focus_entered"]
 [connection signal="pressed" from="letter/letter" to="." method="_on_letter_pressed"]

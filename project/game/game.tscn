@@ -268,6 +268,9 @@ __meta__ = {
 "_edit_vertical_guides_": [ 1842.0, 81.0, 578.0, 867.0, 1269.0 ]
 }
 
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
 [node name="Background" parent="." instance=ExtResource( 4 )]
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
@@ -330,6 +333,7 @@ rect_min_size = Vector2( 77, 0 )
 align = 1
 
 [node name="AspectRatioContainer2" type="AspectRatioContainer" parent="AspectRatioContainer/Separador/HBoxContainer"]
+visible = false
 margin_left = 122.0
 margin_right = 155.0
 margin_bottom = 117.0
@@ -380,15 +384,32 @@ size_flags_vertical = 7
 text = "ﯦ"
 
 [node name="PlaceHolder3" type="Label" parent="AspectRatioContainer/Separador/HBoxContainer"]
-margin_left = 161.0
+margin_left = 122.0
 margin_top = 51.0
-margin_right = 238.0
+margin_right = 199.0
 margin_bottom = 65.0
 rect_min_size = Vector2( 77, 0 )
 align = 1
 
 [node name="Label2" type="Label" parent="AspectRatioContainer/Separador/HBoxContainer"]
-margin_left = 244.0
+margin_left = 205.0
+margin_top = 51.0
+margin_right = 845.0
+margin_bottom = 65.0
+size_flags_horizontal = 3
+
+[node name="timer" type="Label" parent="AspectRatioContainer/Separador/HBoxContainer"]
+margin_left = 851.0
+margin_right = 952.0
+margin_bottom = 117.0
+size_flags_vertical = 5
+theme = ExtResource( 2 )
+text = "00:00"
+align = 1
+valign = 1
+
+[node name="Label3" type="Label" parent="AspectRatioContainer/Separador/HBoxContainer"]
+margin_left = 958.0
 margin_top = 51.0
 margin_right = 1599.0
 margin_bottom = 65.0
@@ -1040,9 +1061,9 @@ custom_constants/separation = 80
 alignment = 1
 
 [node name="CongratulationsContainer" type="VBoxContainer" parent="PanelInformation/GlobalContainer/MarginContainer/VBoxContainer/HBoxContainer/ResultContainer"]
-margin_top = 97.0
+margin_top = 123.0
 margin_right = 635.0
-margin_bottom = 304.0
+margin_bottom = 330.0
 custom_constants/separation = 10
 
 [node name="Message" type="Label" parent="PanelInformation/GlobalContainer/MarginContainer/VBoxContainer/HBoxContainer/ResultContainer/CongratulationsContainer"]
@@ -1067,9 +1088,9 @@ fit_content_height = true
 scroll_active = false
 
 [node name="RecordContainer" type="VBoxContainer" parent="PanelInformation/GlobalContainer/MarginContainer/VBoxContainer/HBoxContainer/ResultContainer"]
-margin_top = 384.0
+margin_top = 410.0
 margin_right = 635.0
-margin_bottom = 447.0
+margin_bottom = 473.0
 
 [node name="Message" type="Label" parent="PanelInformation/GlobalContainer/MarginContainer/VBoxContainer/HBoxContainer/ResultContainer/RecordContainer"]
 visible = false
@@ -1114,9 +1135,9 @@ __meta__ = {
 }
 
 [node name="StatisticsContainer" type="VBoxContainer" parent="PanelInformation/GlobalContainer/MarginContainer/VBoxContainer/HBoxContainer/ResultContainer"]
-margin_top = 527.0
+margin_top = 553.0
 margin_right = 635.0
-margin_bottom = 627.0
+margin_bottom = 602.0
 custom_constants/separation = 2
 
 [node name="TimeContainer" type="HBoxContainer" parent="PanelInformation/GlobalContainer/MarginContainer/VBoxContainer/HBoxContainer/ResultContainer/StatisticsContainer"]
@@ -1146,6 +1167,7 @@ __meta__ = {
 }
 
 [node name="AttemptsContainer" type="HBoxContainer" parent="PanelInformation/GlobalContainer/MarginContainer/VBoxContainer/HBoxContainer/ResultContainer/StatisticsContainer"]
+visible = false
 margin_top = 51.0
 margin_right = 635.0
 margin_bottom = 100.0
@@ -1268,6 +1290,9 @@ __meta__ = {
 "_editor_description_": ""
 }
 
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer/ThemeButtonIcon2" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="PanelInformation/GlobalContainer/MarginContainer/VBoxContainer/ButtonsContainer/Restart" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="PanelInformation/GlobalContainer/MarginContainer/VBoxContainer/ButtonsContainer/Skip" to="." method="_on_home_pressed"]
 [connection signal="pressed" from="PanelInformation/GlobalContainer/Hide" to="PanelInformation" method="_on_Hide_pressed"]
 [connection signal="pressed" from="ShowPanelInformation" to="PanelInformation" method="_on_ShowPanelInformation_pressed"]
