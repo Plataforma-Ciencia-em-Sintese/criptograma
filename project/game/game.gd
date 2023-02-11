@@ -21,6 +21,7 @@ const scene_letter = preload("res://entry/letter.tscn")
 
 const ALLOWED_KEYS = [81, 87, 69, 82, 84, 89, 85, 73, 79, 80, 65, 83, 68, 70, 71, 72, 74, 75, 76, 90, 88, 67, 86, 66, 78, 77, 59, 16777220]
 const SPECIAL_CHAR_DICIO = {'Á': 'A', 'À': 'A', 'Ã': 'A', 'Â': 'A', 'É': 'E', 'È': 'E', 'Ẽ': 'E', 'Ê': 'E', 'Í': 'I', 'Ì': 'I', 'Ĩ': 'I', 'Î': 'I', 'Ó': 'O', 'Ò': 'O', 'Õ': 'O', 'Ô': 'O', 'Ú': 'U', 'Ù': 'U', 'Ũ': 'U', 'Û': 'U', 'Ç': 'C', 'Ñ': 'N', '': ' ', ' ': ' '}
+const LETTER_CODE := {'Q': 81, 'W': 87, 'E': 69, 'R': 82, 'T': 84, 'Y': 89, 'U': 85, 'I': 73, 'O': 79, 'P': 80, 'A': 65, 'S': 83, 'D': 68, 'F': 70, 'G': 71, 'H': 72, 'J': 74, 'K': 75, 'L': 76, 'Z': 90, 'X': 88, 'C': 67, 'V': 86, 'B': 66, 'N': 78, 'M': 77, 'ç': 59, 'backspace': 16777220}
 const SYMBOL_LIST = ['\uf51c', # nf-mdi-airplane
 					'\uf51f', # nf-mdi-alarm
 					'\uf75c', # nf-mdi-football
@@ -95,6 +96,8 @@ onready var _timer_display: Label = $AspectRatioContainer/Separador/HBoxContaine
 onready var _run_time: int = 0
 onready var _congratulation: RichTextLabel = $PanelInformation/GlobalContainer/MarginContainer/VBoxContainer/HBoxContainer/ResultContainer/CongratulationsContainer/TotalStars
 onready var _final_time: Label = $PanelInformation/GlobalContainer/MarginContainer/VBoxContainer/HBoxContainer/ResultContainer/StatisticsContainer/TimeContainer/TotalTime
+onready var _left_tips: int = 10
+onready var _tip_display: Label = $AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer2/ThemeButtonIcon/tips
 
 #  [OPTIONAL_BUILT-IN_VIRTUAL_METHOD]
 #func _init() -> void:
@@ -263,6 +266,12 @@ func _verify_solution () -> void:
 		_congratulation.bbcode_text = "Você completou o nível! Conseguiu [color=#666666][b]%d[/b][/color] estrelas."%score
 		_final_time.text = "%02d:%02d" % [(_run_time/60) % 60, _run_time % 60]
 
+func _simb_solution(simbol:String) -> String:
+	for i in _solution_letters:
+		if (_solution_letters[i] == simbol):
+			return i
+	return simbol
+
 #  [SIGNAL_METHODS]
 
 
@@ -273,3 +282,21 @@ func _on_home_pressed():
 func _on_Timer_timeout():
 	_run_time += 1
 	_timer_display.text = "%02d:%02d" % [(_run_time/60) % 60, _run_time % 60]
+
+
+func _on_tip_pressed():
+	var selected: Control = self.get_focus_owner().get_parent().find_node("pic")
+	var simbol: String = selected.text
+	var solution: String = _simb_solution(simbol)
+	if (simbol != solution):
+		if (_left_tips > 0):
+			_left_tips -= 1
+			_tip_display.text = str(_left_tips)
+			var new_event: InputEventKey = InputEventKey.new()
+			new_event.set_pressed(true)
+			new_event.set_physical_scancode(LETTER_CODE[solution])
+			new_event.set_scancode(LETTER_CODE[solution])
+			get_tree().input_event(new_event)
+			var flush_event = InputEventKey.new()
+			get_tree().input_event(flush_event)
+			

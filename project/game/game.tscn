@@ -333,7 +333,6 @@ rect_min_size = Vector2( 77, 0 )
 align = 1
 
 [node name="AspectRatioContainer2" type="AspectRatioContainer" parent="AspectRatioContainer/Separador/HBoxContainer"]
-visible = false
 margin_left = 122.0
 margin_right = 155.0
 margin_bottom = 117.0
@@ -384,23 +383,23 @@ size_flags_vertical = 7
 text = "ﯦ"
 
 [node name="PlaceHolder3" type="Label" parent="AspectRatioContainer/Separador/HBoxContainer"]
-margin_left = 122.0
+margin_left = 161.0
 margin_top = 51.0
-margin_right = 199.0
+margin_right = 238.0
 margin_bottom = 65.0
 rect_min_size = Vector2( 77, 0 )
 align = 1
 
 [node name="Label2" type="Label" parent="AspectRatioContainer/Separador/HBoxContainer"]
-margin_left = 205.0
+margin_left = 244.0
 margin_top = 51.0
-margin_right = 845.0
+margin_right = 865.0
 margin_bottom = 65.0
 size_flags_horizontal = 3
 
 [node name="timer" type="Label" parent="AspectRatioContainer/Separador/HBoxContainer"]
-margin_left = 851.0
-margin_right = 952.0
+margin_left = 871.0
+margin_right = 972.0
 margin_bottom = 117.0
 size_flags_vertical = 5
 theme = ExtResource( 2 )
@@ -409,7 +408,7 @@ align = 1
 valign = 1
 
 [node name="Label3" type="Label" parent="AspectRatioContainer/Separador/HBoxContainer"]
-margin_left = 958.0
+margin_left = 978.0
 margin_top = 51.0
 margin_right = 1599.0
 margin_bottom = 65.0
@@ -1292,6 +1291,7 @@ __meta__ = {
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer/ThemeButtonIcon2" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer2/ThemeButtonIcon" to="." method="_on_tip_pressed"]
 [connection signal="pressed" from="PanelInformation/GlobalContainer/MarginContainer/VBoxContainer/ButtonsContainer/Restart" to="." method="_on_home_pressed"]
 [connection signal="pressed" from="PanelInformation/GlobalContainer/MarginContainer/VBoxContainer/ButtonsContainer/Skip" to="." method="_on_home_pressed"]
 [connection signal="pressed" from="PanelInformation/GlobalContainer/Hide" to="PanelInformation" method="_on_Hide_pressed"]
