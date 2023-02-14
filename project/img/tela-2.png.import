@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/start.png-c22eddcf47df80ac73b7d6d57146c426.stex"
+path="res://.import/tela-2.png-2280fa8c638e098d0344f3c9eb8e32f7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/start.png"
-dest_files=[ "res://.import/start.png-c22eddcf47df80ac73b7d6d57146c426.stex" ]
+source_file="res://img/tela-2.png"
+dest_files=[ "res://.import/tela-2.png-2280fa8c638e098d0344f3c9eb8e32f7.stex" ]
 
 [params]
 
