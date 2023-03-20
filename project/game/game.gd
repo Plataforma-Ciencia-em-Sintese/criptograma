@@ -7,6 +7,8 @@ extends Control
 #  [SIGNALS]
 signal game_over
 signal table_change
+signal table_filled
+signal table_reset_color
 
 #  [ENUMS]
 enum SOLVE_TARGET {
@@ -98,6 +100,7 @@ onready var _congratulation: RichTextLabel = $PanelInformation/GlobalContainer/M
 onready var _final_time: Label = $PanelInformation/GlobalContainer/MarginContainer/VBoxContainer/HBoxContainer/ResultContainer/StatisticsContainer/TimeContainer/TotalTime
 onready var _left_tips: int = 10
 onready var _tip_display: Label = $AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer2/ThemeButtonIcon/tips
+onready var _reset_color: int = -1
 
 #  [OPTIONAL_BUILT-IN_VIRTUAL_METHOD]
 #func _init() -> void:
@@ -129,6 +132,7 @@ func _unhandled_key_input(event):
 		if ((event_key.get_physical_scancode() in ALLOWED_KEYS) and _game_running) :
 			_user_solution[_selected] = char(event_key.get_scancode())
 			_update_user_solution()
+			_table_full()
 			_verify_solution()
 			var next:Control = self.get_focus_owner().find_next_valid_focus()
 			next.grab_focus()
@@ -160,6 +164,11 @@ func get_new_solution(valor: String) -> String:
 func set_selected_symbol(valor: String) -> void:
 	_selected = valor
 
+func get_correct_letter(valor: String) -> String:
+	for i in _solution_letters:
+		if (_solution_letters[i] == valor):
+			return i
+	return "-1"
 #  [PRIVATE_METHODS]
 
 func _score(time : int) -> int:
@@ -238,6 +247,20 @@ func _get_actual_symbol() -> void:
 func _update_user_solution () -> void:
 	emit_signal("table_change")
 
+func _table_full() -> void:
+	var filled: bool = true
+	for i in _solution_mask:
+		var simb = _solution_letters[i]
+		if (not _solution_mask[i]):
+#			print(_user_solution[simb])
+			if (_user_solution[simb] == ""):
+				filled = false
+	if (filled):
+#		print("tabela cheia")
+		emit_signal("table_filled")
+		if (_reset_color <= 0):
+			_reset_color = 5
+
 func _verify_solution () -> void:
 #	print()
 	var win_rule = true
@@ -282,6 +305,10 @@ func _on_home_pressed():
 func _on_Timer_timeout():
 	_run_time += 1
 	_timer_display.text = "%02d:%02d" % [(_run_time/60) % 60, _run_time % 60]
+	
+	_reset_color -= 1
+	if (_reset_color == 0):
+		emit_signal("table_reset_color")
 
 
 func _on_tip_pressed():
